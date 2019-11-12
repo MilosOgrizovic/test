@@ -1,0 +1,31 @@
+<div class="table-responsive mt-5" ng-init="init()">
+    <table class="table mt-5">
+        <thead>
+            <tr>
+                <th scope="col">Proposal</th>
+                <th scope="col">ID</th>
+                <th scope="col">Car</th>
+                <th scope="col">Insurance Plan</th>
+                <th scope="col">Subscriber</th>
+                <th scope="col">Created</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="proposal in proposals">
+                <th scope="row" style="width: 150px;">
+                    <input type="checkbox" ng-model="proposal.isChecked" ng-click="selectProposal(proposal)">
+                </th>
+                <td>{{proposal.id}}</td>
+                <td>{{proposal.car}}</td>
+                <td>{{proposal.insurancePlan}}</td>
+                <td>{{proposal.subscriber}}</td>
+                <td>{{proposal.created}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="mt-5">
+    <button type="button" class="btn btn-secondary mr-2" ng-click="previousStep()"><i class="fa fa-step-backward"></i> Previous step</button>
+    <button type="submit" class="btn btn-primary" ng-click="confirmProposal()" ng-disabled="selectedProposal === null">Next step <i class="fa fa-step-forward"></i></button>
+</div>

@@ -1,0 +1,30 @@
+<div class="ml-5">
+    <button type="button" class="btn btn-primary mr-2" ng-click="addAccident({driver: driver})"><i class="fa fa-plus"></i></button>
+    <button type="button" class="btn btn-primary" ng-click="removeAccident({driver: driver})" ng-disabled="driver.accidents.length === 0"><i class="fa fa-minus"></i></button>
+</div>
+ 
+<div class="container mt-3">
+    <div class="col-md-3" ng-repeat="accident in driver.accidents">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title"><i class="fas fa-car-crash"></i> Accident</h3>
+                <div class="card-text mt-3">
+                    <div class="form-group">
+                        <p class="input-group">
+                            <input type="text" class="form-control" uib-datepicker-popup ng-model="accident.happened" is-open="datePicker[accident.name]"
+                                show-weeks="false" show-button-bar="false"/>
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-primary" ng-click="openCalendar(accident)"><i class="fa fa-calendar-alt"></i></button>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="form-group mt-2">
+                        <input type="checkbox" ng-model="accident.wasResponsible">
+                        <label>Is Responsible</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

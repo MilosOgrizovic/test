@@ -1,0 +1,93 @@
+<form name="policyForm" ng-submit="createPolicy(policyForm.$valid)" class="mt-5" novalidate ng-init="init()">
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                <label>Proposal: </label>
+                <input type="text" class="form-control" ng-model="policy.proposalId" disabled>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label>Signed: </label>
+                <p class="input-group">
+                    <input type="text" class="form-control" uib-datepicker-popup ng-model="policy.dateSigned" name="dateSigned" 
+                        is-open="datePicker['dateSigned']" show-button-bar="false"/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-primary" ng-click="openCalendar('dateSigned')"><i class="fa fa-calendar-alt"></i></button>
+                    </span>
+                </p>
+                <span class="error-msg" ng-show="policyForm.$submitted && policyForm.dateSigned.$invalid">Please insert signed date.</span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                <label>Amount: </label>
+                <input type="text" class="form-control" ng-model="policy.amount" disabled>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label>Payed: </label>
+                <p class="input-group">
+                    <input type="text" class="form-control" uib-datepicker-popup ng-model="policy.moneyReceived" name="moneyReceived" 
+                        is-open="datePicker['moneyReceived']" show-button-bar="false"/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-primary" ng-click="openCalendar('moneyReceived')"><i class="fa fa-calendar-alt"></i></button>
+                    </span>
+                </p>
+                <span class="error-msg" ng-show="policyForm.$submitted && policyForm.moneyReceived.$invalid">Please insert money received date.</span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                <label>Payment Mode: </label>
+                <select class="form-control" ng-model="policy.paymentMode" 
+                    ng-options="paymentMode.id as paymentMode.name for paymentMode in paymentModes" name="paymentMode" required>
+                </select>
+                <span class="error-msg" ng-show="policyForm.$submitted && policyForm.paymentMode.$error.required">Please select payment mode.</span>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-if="policy.paymentMode === 1">
+        <div class="col-6">
+            <div class="form-group">
+                <label>Credit Card Holder: </label>
+                <input type="text" class="form-control" ng-model="policy.creditCardHolder" name="creditCardHolder" required>
+                <span class="error-msg" ng-show="policyForm.$submitted && policyForm.creditCardHolder.$error.required">Please insert credit card holder.</span>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label>Credit Card Type: </label>
+                <select class="form-control" ng-model="policy.creditCardType" 
+                    ng-options="creditCardType.id as creditCardType.name for creditCardType in creditCardTypes" name="creditCardType" required>
+                </select>
+                <span class="error-msg" ng-show="policyForm.$submitted && policyForm.creditCardType.$error.required">Please select credit card type.</span>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-if="policy.paymentMode === 2">
+        <div class="col-6">
+            <div class="form-group">
+                <label>Account Holder: </label>
+                <input type="text" class="form-control" ng-model="policy.bankAccountHolder" name="bankAccountHolder" required>
+                <span class="error-msg" ng-show="policyForm.$submitted && policyForm.bankAccountHolder.$error.required">Please insert account holder.</span>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label>Bank: </label>
+                <input type="text" class="form-control" ng-model="policy.bankName" name="bankName" required>
+                <span class="error-msg" ng-show="policyForm.$submitted && policyForm.bankName.$error.required">Please insert bank name.</span>
+            </div>
+        </div>
+    </div>
+    <div>
+        <button type="button" class="btn btn-secondary" ng-click="changeProposal()"><i class="fa fa-step-backward"></i> Change proposal</button>
+        <button type="submit" class="btn btn-primary">Confirm policy <i class="fa fa-save"></i></button>
+    </div>
+</form>

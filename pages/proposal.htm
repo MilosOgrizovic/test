@@ -1,0 +1,10 @@
+<div class="col-md-4 offset-md-4 mt-5" ng-init=init()>
+    <div class="form-group" ng-repeat="info in infos">
+        <label>{{info.label}}</label>
+        <input type="text" class="form-control" ng-model="info.value" disabled>
+    </div>
+    <div>
+        <button type="button" class="btn btn-secondary mr-2" ng-click="previousStep()"><i class="fa fa-step-backward"></i> Previous step</button>
+        <button type="submit" class="btn btn-primary" ng-click="createProposal()">Confirm proposal <i class="fa fa-save"></i></button>
+    </div>
+</div>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en-us" ng-app="proposalApp" ng-controller="rootController">
+    <head>
+        <title>Proposal app</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta charset="UTF-8">
+
+        <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.js"></script> 
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.css" rel="stylesheet">    -->
+
+        <!-- load bootstrap and fontawesome via CDN -->
+        <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootswatch/4.3.1/minty/bootstrap.min.css" />
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+        <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.11.2/css/all.css" />
+        <style>
+            .error-msg {
+                color: red;
+            }
+            input[type="text"]:disabled {
+                background: #dddddd;
+            }
+            th {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                text-align: left;
+            }
+            .spinner-border {
+                position: absolute;
+                top: 30%;
+                left: 40%;
+                text-align: center;
+                font-size: 10px;
+                width: 25rem;
+                height: 25rem;
+            }
+            .large-button {
+                width: 200px;
+                height: 200px;
+                font-size: 30px;
+                border-radius: 50%;
+            }
+            .jumbotron-special {
+                position: relative;
+            }
+            .jumbotron-special:after {
+                content : "";
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 10%;
+                background-image: url('img/pic01.jpg'); 
+                background-position: center center;
+                width: 80%;
+                height: 150%;
+                opacity : 0.3;
+                z-index: -1;
+            }
+        </style>
+        
+        <!-- load angular via CDN -->
+        <script src="//code.angularjs.org/1.6.1/angular.min.js"></script>
+        <script src="//code.angularjs.org/1.6.1/angular-route.min.js"></script>
+        <script src="//code.angularjs.org/1.6.1/angular-resource.min.js"></script>
+        <script src="//code.angularjs.org/1.6.1/angular-animate.js"></script>
+        <script src="//code.angularjs.org/1.6.1/angular-sanitize.js"></script>
+        <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+        <script src="app.js"></script>
+        <script src="routes.js"></script>
+        <script src="controllers/identificationController.js"></script>
+        <script src="controllers/newSubscriberController.js"></script>
+        <script src="controllers/tarificationController.js"></script>
+        <script src="controllers/vehicleController.js"></script>
+        <script src="controllers/proposalController.js"></script>
+        <script src="controllers/mainController.js"></script>
+        <script src="controllers/rootController.js"></script>
+        <script src="controllers/confirmProposalController.js"></script>
+        <script src="controllers/policyController.js"></script>
+        <script src="services/userService.js"></script>
+        <script src="services/storageService.js"></script>
+        <script src="services/tabsService.js"></script>
+        <script src="directives/tabs.js"></script>
+        <script src="directives/chooseDrivers.js"></script>
+        <script src="directives/driverForm.js"></script>
+        <script src="directives/driverSubscriberForm.js"></script>
+        <script src="directives/risksForm.js"></script>
+        <script src="directives/accidentsForm.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <tabs ng-if="proposal === true"></tabs>
+            <div class="d-flex justify-content-center" ng-if="initialized === false">
+                <div class="spinner-border text-primary" role="status">
+                </div>
+            </div>
+            <ng-view ng-if="initialized === true"></ng-view>
+        </div>
+    </body>
+</html>

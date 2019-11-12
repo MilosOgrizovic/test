@@ -1,0 +1,64 @@
+<form name="driverForm" ng-submit="checkForm()" novalidate>
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                <label>Gender: </label>
+                <select class="form-control" ng-model="driver.gender" ng-init="subscriber.gender = selectedGender" 
+                    ng-options="gender.value as gender.name for gender in genders" name="gender" required>
+                </select>
+                <span class="error-msg" ng-show="identificationForm.$submitted && driverForm.gender.$error.required">Please select gender.</span>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label>Drivers Licence Number: </label>
+                <input type="text" class="form-control" ng-model="driver.driversLicenceNumber" name="driversLicenceNumber" required>
+                <span class="error-msg" ng-show="identificationForm.$submitted && driverForm.driversLicenceNumber.$error.required">Please insert drivers license number.</span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                <label>Marital Status: </label>
+                <select class="form-control" ng-model="driver.maritalStatus" ng-init="driver.maritalStatus = selectMaritalStatus({driver: driver})" 
+                    ng-options="maritalStatus.description for maritalStatus in maritalStatuses" name="maritalStatus" required>
+                </select>
+                <span class="error-msg" ng-show="identificationForm.$submitted && driverForm.maritalStatus.$error.required">Please select marital status.</span>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label>Drivers Licence Obtained: </label>
+                <p class="input-group">
+                    <input type="text" class="form-control" uib-datepicker-popup ng-model="driver.driversLicenceObtained" name="driversLicenceObtained" is-open="datePicker['driversLicenceObtained']" show-button-bar="false"/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-primary" ng-click="openCalendar('driversLicenceObtained')"><i class="fa fa-calendar-alt"></i></button>
+                    </span>
+                </p>
+                <span class="error-msg" ng-show="identificationForm.$submitted && driverForm.driversLicenceObtained.$invalid">Please insert drivers license obrtained date.</span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                <label>Date of Birth: </label>
+                <p class="input-group">
+                    <input type="text" class="form-control" uib-datepicker-popup ng-model="driver.birthDate" name="birthDate" is-open="datePicker['birthDate']" show-button-bar="false"/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-primary" ng-click="openCalendar('birthDate')"><i class="fa fa-calendar-alt"></i></button>
+                    </span>
+                </p>
+                <span class="error-msg" ng-show="identificationForm.$submitted && driverForm.birthDate.$invalid">Please insert date of birth.</span>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label>Years insured: </label>
+                <input type="text" class="form-control" ng-model="driver.yearsInsured" name="yearsInsured" required>
+                <span class="error-msg" ng-show="identificationForm.$submitted && driverForm.yearsInsured.$error.required">Please insert years insured.</span>
+            </div>
+        </div>
+    </div>
+</form>

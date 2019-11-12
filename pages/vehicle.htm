@@ -1,0 +1,33 @@
+<form name="vehicleForm" ng-submit="addVehile(vehicleForm.$valid)" class="mt-5" novalidate ng-init="init()">
+    <div class="col-md-6 offset-md-3">
+        <div class="form-group">
+            <label>Brand: </label>
+            <select class="form-control" ng-model="vehicle.brand" name="brand" ng-selected="selectBrand()"
+                ng-options="vehicle.name as vehicle.name for vehicle in vehicles" required>
+            </select>
+            <span class="error-msg" ng-show="vehicleForm.$submitted && vehicleForm.brand.$error.required">Please select brand.</span>
+        </div>
+        <div class="form-group">
+            <label>Model: </label>
+            <select class="form-control" ng-model="vehicle.model" name="model" 
+                ng-options="model for model in selectedBrand.models" required ng-disabled="selectedBrand === undefined">
+            </select>
+            <span class="error-msg" ng-show="vehicleForm.$submitted && vehicleForm.model.$error.required">Please select model.</span>
+        </div>
+        <div class="form-group">
+            <label>Year: </label>
+            <input type="text" class="form-control" ng-model="vehicle.year" name="year" ng-pattern="yearPattern" required>
+            <span class="error-msg" ng-show="vehicleForm.$submitted && vehicleForm.year.$error.required">Please insert year.</span>
+            <span class="error-msg" ng-show="vehicleForm.$submitted && vehicleForm.year.$error.pattern">Please insert valid year.</span>
+        </div>
+        <div class="form-group">
+            <label>License plate number: </label>
+            <input type="text" class="form-control" ng-model="vehicle.licencePlateNumber" name="licencePlateNumber" required>
+            <span class="error-msg" ng-show="vehicleForm.$submitted && vehicleForm.licencePlateNumber.$error.required">Please insert License Plate number.</span>
+        </div>
+        <div>
+            <button type="button" class="btn btn-secondary" ng-click="previousStep()"><i class="fa fa-step-backward"></i> Previous step</button>
+            <button type="submit" class="btn btn-primary">Next step <i class="fa fa-step-forward"></i></button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,114 @@
+<form name="subscriberForm" ng-submit="addSubscriber(subscriberForm.$valid)" class="mt-5" novalidate ng-init="init()">
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                <label>Gender: </label>
+                <select class="form-control" ng-model="subscriber.gender" ng-init="subscriber.gender = selectedGender" 
+                    ng-options="gender.value as gender.name for gender in genders" name="gender" required>
+                </select>
+                <span class="error-msg" ng-show="subscriberForm.$submitted && subscriberForm.gender.$error.required">Please select gender.</span>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label>City: </label>
+                <input type="text" class="form-control" ng-model="subscriber.cityName" name="cityName" required>
+                <span class="error-msg" ng-show="subscriberForm.$submitted && subscriberForm.cityName.$error.required">Please insert city.</span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                <label>Marital Status: </label>
+                <select class="form-control" ng-model="subscriber.maritalStatus" ng-init="subscriber.maritalStatus = selectedMaritalStatus" 
+                    ng-options="maritalStatus.description for maritalStatus in maritalStatuses" name="maritalStatus" required>
+                </select>
+                <span class="error-msg" ng-show="subscriberForm.$submitted && subscriberForm.maritalStatus.$error.required">Please select marital status.</span>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label>Adress Line 1: </label>
+                <input type="text" class="form-control" ng-model="subscriber.addressLine1" name="addressLine1" required>
+                <span class="error-msg" ng-show="subscriberForm.$submitted && subscriberForm.addressLine1.$error.required">Invalid address.</span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                <label>First Name: </label>
+                <input type="text" class="form-control" name="firstName" ng-model="subscriber.firstName" required>
+                <span class="error-msg" ng-show="subscriberForm.$submitted && subscriberForm.firstName.$error.required">Invalid first name.</span>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label>Adress Line 2: </label>
+                <input type="text" class="form-control" ng-model="subscriber.addressLine2">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                <label>Last Name: </label>
+                <input type="text" class="form-control" ng-model="subscriber.lastName" name="lastName" required>
+                <span class="error-msg" ng-show="subscriberForm.$submitted && subscriberForm.lastName.$error.required">Invalid last name.</span>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label>Home Phone: </label>
+                <input type="text" class="form-control" ng-model="subscriber.homePhone" name="homePhone" ng-pattern="mobilePatern">
+                <span class="error-msg" ng-show="subscriberForm.$submitted && subscriberForm.homePhone.$invalid">Invalid home phone number.</span>
+                <span class="error-msg" ng-show="singlePhone">At least one of these fields is required : Home Phone, Mobile Phone.</span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                <label>Date of Birth: </label>
+                <p class="input-group">
+                    <input type="text" class="form-control" uib-datepicker-popup ng-model="subscriber.birthDate" name="birthDate" 
+                        is-open="datePicker['birthDate']" show-button-bar="false"/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-primary" ng-click="openCalendar('birthDate')"><i class="fa fa-calendar-alt"></i></button>
+                    </span>
+                </p>
+                <span class="error-msg" ng-show="subscriberForm.$submitted && subscriberForm.birthDate.$invalid">Please insert date of birth.</span>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label>Mobile Phone: </label>
+                <input type="text" class="form-control" ng-model="subscriber.mobilePhone" name="mobilePhone" ng-pattern="mobilePatern">
+                <span class="error-msg" ng-show="subscriberForm.$submitted && subscriberForm.mobilePhone.$invalid">Invalid mobile phone number.</span>
+                <span class="error-msg" ng-show="singlePhone">At least one of these fields is required : Home Phone, Mobile Phone.</span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                <label>Country: </label>
+                <select class="form-control" ng-model="subscriber.country" ng-init="subscriber.country = selectedCountry" name="country" 
+                    ng-options="country.name for country in countries" required>
+                </select>
+                <span class="error-msg" ng-show="subscriberForm.$submitted && subscriberForm.country.$error.required">Please select country.</span>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label>Email: </label>
+                <input type="email" class="form-control" ng-model="subscriber.email" name="email" required>
+                <span class="error-msg" ng-show="subscriberForm.$submitted && subscriberForm.email.$error.required">Invalid e-mail address.</span>
+            </div>
+        </div>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary">Next step <i class="fa fa-step-forward"></i></button>
+    </div>
+</form>

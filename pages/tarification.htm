@@ -1,0 +1,26 @@
+<div class="table-responsive mt-5" ng-init="init()">
+    <table class="table mt-5">
+        <thead>
+            <tr>
+            <th scope="col" style="width: 250px;">Plan</th>
+            <th ng-repeat="item in insuranceItems" scope="col">{{item.name}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="plan in insurancePlans">
+                <th scope="row" style="width: 150px;">
+                    <input type="checkbox" ng-model="plan.isChecked" ng-click="selectPlan(plan)">{{plan.name}}
+                </th>
+                <th ng-repeat="item in insuranceItems">
+                    <input type="checkbox" ng-checked="isItemChecked(plan, item)" 
+                        ng-click="checkUncheckItem(item)" ng-disabled="itemDisabled(plan, item)">
+                </th>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="mt-5">
+    <button type="button" class="btn btn-secondary mr-2" ng-click="previousStep()"><i class="fa fa-step-backward"></i> Previous step</button>
+    <button type="submit" class="btn btn-primary" ng-click="addInsurancePlan()" ng-disabled="selectedPlan === null">Next step <i class="fa fa-step-forward"></i></button>
+</div>
