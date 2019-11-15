@@ -5,7 +5,7 @@ proposalApp.directive('tabs', ['$location', 'tabsService', function($location, t
         link: function(scope) {
             scope.data = tabsService.data;
 
-            scope.test = function() {
+            scope.home = function() {
                 $location.path('/');
             }
         }

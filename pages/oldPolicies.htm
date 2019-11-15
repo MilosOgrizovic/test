@@ -1,0 +1,41 @@
+<div>
+    <button type="button" class="btn btn-primary mr-3 mt-3" ng-click="home()"><i class="fa fa-home"></i></button>
+</div>
+<div class="table-responsive" ng-init="init()">
+    <table class="table table-hover mt-5">
+        <thead class="thead-dark">
+            <tr style="cursor: pointer;">
+                <th scope="col">Info</th>
+                <th scope="col" ng-click="sortByColumn('id')">ID</th>
+                <th scope="col" ng-click="sortByColumn('subscriber')">Subscriber</th>
+                <th scope="col" ng-click="sortByColumn('car')">Car</th>
+                <th scope="col" ng-click="sortByColumn('dateSigned')">Date Signed</th>
+                <th scope="col" ng-click="sortByColumn('moneyReceived')">Money Received</th>
+                <th scope="col" ng-click="sortByColumn('amount')">Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="policy in policies" class="clickable-row">
+                <th scope="row">
+                    <button class="btn btn-primary" ng-click="selectRow(policy)">Info</button>
+                </th>
+                <td>{{policy.id}}</td>
+                <td>{{policy.subscriber}}</td>
+                <td>{{policy.car}}</td>
+                <td>{{policy.dateSigned}}</td>
+                <td>{{policy.moneyReceived}}</td>
+                <td>{{policy.amount}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="col-md-6">
+    <div class="form-group" ng-repeat="info in infos">
+        <label>{{info.label}}</label>
+        <input type="text" class="form-control" ng-model="info.value" disabled>
+    </div>
+    <div>
+        <button type="button" class="btn btn-secondary" ng-if="infoVisible" ng-click="clearInfo()">Close Info</button>
+    </div>
+</div>

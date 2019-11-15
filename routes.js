@@ -33,6 +33,10 @@ proposalApp.config(function ($routeProvider) {
         templateUrl: 'pages/policy.htm', 
         controller: 'policyController'
     })
+    .when('/oldPolicies', { 
+        templateUrl: 'pages/oldPolicies.htm', 
+        controller: 'oldPoliciesController'
+    })
     .otherwise({
         templateUrl: 'pages/main.htm', 
         controller: 'mainController'

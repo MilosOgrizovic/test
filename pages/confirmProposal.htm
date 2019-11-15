@@ -1,6 +1,9 @@
-<div class="table-responsive mt-5" ng-init="init()">
+<div>
+    <button type="button" class="btn btn-primary mr-3 mt-3" ng-click="home()"><i class="fa fa-home"></i></button>
+</div>
+<div class="table-responsive" ng-init="init()">
     <table class="table mt-5">
-        <thead>
+        <thead class="thead-dark">
             <tr>
                 <th scope="col">Proposal</th>
                 <th scope="col">ID</th>
@@ -26,6 +29,5 @@
 </div>
 
 <div class="mt-5">
-    <button type="button" class="btn btn-secondary mr-2" ng-click="previousStep()"><i class="fa fa-step-backward"></i> Previous step</button>
     <button type="submit" class="btn btn-primary" ng-click="confirmProposal()" ng-disabled="selectedProposal === null">Next step <i class="fa fa-step-forward"></i></button>
 </div>

@@ -31,7 +31,7 @@ proposalApp.controller('confirmProposalController', ['$scope', '$location', 'use
         }
     }
 
-    $scope.previousStep = () => {
+    $scope.home = () => {
         $location.path('/');
     }
 

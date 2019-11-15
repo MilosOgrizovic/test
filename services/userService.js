@@ -54,4 +54,12 @@ proposalApp.service('userService', function($http) {
     this.savePolicy = (policy) => {
         return $http.post(policyUrl + 'policy', policy);
     }
+
+    this.getPolicies = () => {
+        return $http.get(policyUrl + 'policies');
+    }
+
+    this.getPolicyDetails = (id) => {
+        return $http.get(policyUrl + 'policy/' + id);
+    }
 })

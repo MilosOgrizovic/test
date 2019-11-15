@@ -7,4 +7,8 @@ proposalApp.controller('mainController', ['$scope', '$location', function($scope
     $scope.newPolicy = function() {
         $location.path('/confirmProposal');
     }
+
+    $scope.oldPolicies = function() {
+        $location.path('/oldPolicies');
+    }
 }])
