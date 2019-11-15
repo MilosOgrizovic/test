@@ -1,9 +1,9 @@
-[Rutiranje](#rutiranje)
-[Kreiranje Direktive](#kreiranje-direktive)
-[Kreiranje Servisa](#kreiranje-servisa)
-[Upotreba Ng-Class](#upotreba-ng-class)
-[Upotreba Ng-Pattern](#upotreba-ng-patter)
-[Poziv funkcije iz direktive](#poziv-funkcije-iz-direktive)
+###[Rutiranje](#rutiranje)
+###[Kreiranje Direktive](#kreiranje-direktive)
+###[Kreiranje Servisa](#kreiranje-servisa)
+###[Upotreba Ng-Class](#upotreba-ng-class)
+###[Upotreba Ng-Pattern](#upotreba-ng-patter)
+###[Poziv funkcije iz direktive](#poziv-funkcije-iz-direktive)
 
 
 
