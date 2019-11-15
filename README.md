@@ -1,9 +1,9 @@
-###[Rutiranje](#rutiranje)
-###[Kreiranje Direktive](#kreiranje-direktive)
-###[Kreiranje Servisa](#kreiranje-servisa)
-###[Upotreba Ng-Class](#upotreba-ng-class)
-###[Upotreba Ng-Pattern](#upotreba-ng-patter)
-###[Poziv funkcije iz direktive](#poziv-funkcije-iz-direktive)
+### [Rutiranje](#rutiranje)
+### [Kreiranje Direktive](#kreiranje-direktive)
+### [Kreiranje Servisa](#kreiranje-servisa)
+### [Upotreba Ng-Class](#upotreba-ng-class)
+### [Upotreba Ng-Pattern](#upotreba-ng-patter)
+### [Poziv funkcije iz direktive](#poziv-funkcije-iz-direktive)
 
 
 
@@ -56,14 +56,14 @@ weatherApp.service('weatherService', ['$resource', function($resource) {
 <a href="#/forecast/2" ng-class="{'bg-primary': days === '2'}">2</a>
 ```
 
-# UPOTREBA NG_PATTERN
+# UPOTREBA NG-PATTERN
 
 ```
 $scope.mobilePatern = /(^\d{3}-\d{3}-\d{3}$)/;
 input type="text" class="form-control" ng-model="subscriber.mobilePhone" name="mobilePhone" ng-pattern="mobilePatern">
 ```
 
-# POZIV FUNCKIJE IZ DIREKTIVE
+# POZIV FUNKCIJE IZ DIREKTIVE
 
 ```
 ng-click="addAccident({date: item.dt})"
