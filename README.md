@@ -1,3 +1,7 @@
+### Kreiranje Direktive [here](#kreiranje-direktive)
+
+
+
 # RUTIRANJE
 
 ```
